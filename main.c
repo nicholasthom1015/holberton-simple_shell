@@ -28,11 +28,12 @@ int main(void)
 		}
 
 		if(Validate_Input(tokens))
-			printf("JACKPOT!\n");
-		else
-			printf("Well it ran...\n");
-	}while(readResult > 0);
+			Run_Command(tokens);
+        }while(readResult > 0);
 	printf("Goodbye!\n");
+	for (inputLen = 0; inputLen < 16; inputLen++)
+		free(tokens[inputLen]);
+	free(tokens);
 	free(rawInput);
 	return (0);
 }
