@@ -5,6 +5,7 @@
 int Run_Command(char **argV)
 {
 	pid_t childPID;
+	int status;
 	/* if passed NULL, Return -1 */
 	if (argV == NULL || argV[0] == NULL)
 		return (-1);
@@ -12,11 +13,11 @@ int Run_Command(char **argV)
 	if(childPID == 0)
 	{
 		if (execve(argV[0], argV, NULL) == -1)
-		exit(errno);
+			exit(errno);
 	}
 	else
 	{
-		waitpid(childPID, NULL, WNOHANG | WUNTRACED);
+		wait(&status);
 	}
 	return (0);
 
