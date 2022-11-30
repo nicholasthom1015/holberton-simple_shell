@@ -16,6 +16,6 @@ char **Prep_Input(char *line)
 		resultArray[i] = curToken;
 		curToken = strtok(NULL, delim);
 	}
-	//resultArray[i] = NULL;
+	resultArray[i] = NULL;
         return(resultArray);
 }
