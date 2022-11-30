@@ -12,16 +12,27 @@ int main(void)
 	char *rawInput = NULL;
 	ssize_t readResult;
 	size_t inputLen = 0;
-        char **tokens;
-
+        char **tokens = NULL;
+	printf("%lu\n", sizeof(struct stat));
 	do
 	{
+		write(STDOUT_FILENO, "->::", 4);
 		readResult = getline(&rawInput, &inputLen, stdin);
-		tokens = Prep_Input(rawInput);
+		if(!readResult > 0)
+			break;
+		tokens = Prep_Input(rawInput, tokens);
 		if(tokens == NULL || tokens[0] == NULL)
+		{
+			write(STDOUT_FILENO, "Wo\n",3);
 			continue;
-		printf("%s\n",tokens[0]);
+		}
+
+		if(Validate_Input(tokens))
+			printf("JACKPOT!\n");
+		else
+			printf("Well it ran...\n");
 	}while(readResult > 0);
 	printf("Goodbye!\n");
+	free(rawInput);
 	return (0);
 }

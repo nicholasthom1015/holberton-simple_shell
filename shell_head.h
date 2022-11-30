@@ -1,7 +1,7 @@
 #ifndef MY_SHELL_HEAD
 #define MY_SHELL_HEAD
 /* INCLUDES*/
-
+#include <sys/stat.h>
 #include <sys/types.h>
 #include <unistd.h>
 #include <stdio.h>
@@ -15,7 +15,7 @@
 
 
 /* FUNCTIONS*/
-char **Prep_Input(char *);
+char **Prep_Input(char *, char **);
 int Validate_Input (char **);
 int Run_Command (char **);
 

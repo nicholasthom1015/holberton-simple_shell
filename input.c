@@ -1,15 +1,20 @@
 #include "shell_head.h"
 
-char **Prep_Input(char *line)
+char **Prep_Input(char *line, char **resultArray)
 {
-	char **resultArray;
 	char *curToken;
 	char *delim = " \t\r\n";
 	int i;
 
-	resultArray = malloc(16 * sizeof(char *));
-	if (!resultArray)
+
+	if(resultArray == NULL)
+		resultArray = malloc(16 * sizeof(char *));
+
+	if (resultArray == NULL)
+	{
+		write(STDOUT_FILENO,"RA_FAIL\n",8);
 		return (NULL);
+	}
 	curToken = strtok(line, delim);
         for (i = 0; curToken && i < 15; i++)
 	{
@@ -18,4 +23,12 @@ char **Prep_Input(char *line)
 	}
 	resultArray[i] = NULL;
         return(resultArray);
+}
+
+int Validate_Input(char **tokens)
+{
+	struct stat sb;
+	int result;
+	result = (stat(tokens[0], &sb) == 0);
+	return (result);
 }
