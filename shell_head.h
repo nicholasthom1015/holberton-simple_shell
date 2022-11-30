@@ -18,7 +18,7 @@
 char **Prep_Input(char *, char **);
 char *_strcpy(char *dest, const char *src);
 char *_strcat(char *dest, char *src);
-int Validate_Input (char **);
-int Run_Command (char **);
+int Validate_Input(char **);
+int Run_Command(char **);
 
 #endif
