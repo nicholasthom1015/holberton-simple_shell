@@ -10,7 +10,7 @@ int Run_Command(char **argV)
 	if (argV == NULL || argV[0] == NULL)
 		return (-1);
 	childPID = fork();
-	if(childPID == 0)
+	if (childPID == 0)
 	{
 		if (execve(argV[0], argV, NULL) == -1)
 			exit(errno);
