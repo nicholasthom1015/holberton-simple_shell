@@ -6,7 +6,7 @@
  * @argv: argv
  *Return: 0 or error
  */
-int main(int argc, char **argv)
+int main(__attribute__((unused))int argc, char **argv)
 {
 	char *rawInput = NULL;
 	ssize_t readResult;
