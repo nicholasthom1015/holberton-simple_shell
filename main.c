@@ -13,7 +13,7 @@ int main(void)
 	ssize_t readResult;
 	size_t inputLen = 0;
         char **tokens = NULL;
-	printf("%lu\n", sizeof(struct stat));
+
 	do
 	{
 		write(STDOUT_FILENO, "->::", 4);
@@ -29,7 +29,7 @@ int main(void)
 		if(Validate_Input(tokens))
 			Run_Command(tokens);
         }while(readResult > 0);
-	printf("Goodbye!\n");
+	/* printf("Goodbye!\n"); */
 	for (inputLen = 0; inputLen < 16; inputLen++)
 		free(tokens[inputLen]);
 	free(tokens);
