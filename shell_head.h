@@ -15,7 +15,7 @@
 
 
 /* FUNCTIONS*/
-char **Get_Input();
+char **Prep_Input(char *);
 int Validate_Input (char **);
 int Run_Command (char **);
 
