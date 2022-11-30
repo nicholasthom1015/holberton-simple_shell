@@ -15,6 +15,8 @@
 
 
 /* FUNCTIONS*/
+char *_strcpy(char *dest, const char *src);
+char *_strcat(char *dest, char *src);
 char **Prep_Input(char *);
 int Validate_Input (char **);
 int Run_Command (char **);
