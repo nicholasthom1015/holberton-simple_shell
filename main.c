@@ -2,10 +2,11 @@
 
 /**
  * main - Program Entry
- *
+ * @argc: argc
+ * @argv: argv
  *Return: 0 or error
  */
-int main(void)
+int main(int argc, char **argv)
 {
 	char *rawInput = NULL;
 	ssize_t readResult;
@@ -25,6 +26,10 @@ int main(void)
 
 		if (Validate_Input(tokens))
 			Run_Command(tokens);
+		else
+		{
+			printf("%s: No such file or description\n", argv[0]);
+		}
 	} while (readResult > 0);
 	/* printf("Goodbye!\n"); */
 	for (inputLen = 0; inputLen < 16; inputLen++)
