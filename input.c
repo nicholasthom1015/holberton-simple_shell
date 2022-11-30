@@ -15,8 +15,11 @@ char **Prep_Input(char *line, char **resultArray)
 
 
 	if (resultArray == NULL)
+	{
 		resultArray = malloc(16 * sizeof(char *));
-
+		for (i = 0; i<16; i++)
+			resultArray[i] = NULL;
+	}
 	if (resultArray == NULL)
 	{
 		return (NULL);
