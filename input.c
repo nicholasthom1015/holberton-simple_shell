@@ -12,7 +12,6 @@ char **Prep_Input(char *line, char **resultArray)
 
 	if (resultArray == NULL)
 	{
-		write(STDOUT_FILENO,"RA_FAIL\n",8);
 		return (NULL);
 	}
 	curToken = strtok(line, delim);

@@ -23,7 +23,6 @@ int main(void)
 		tokens = Prep_Input(rawInput, tokens);
 		if(tokens == NULL || tokens[0] == NULL)
 		{
-			write(STDOUT_FILENO, "Wo\n",3);
 			continue;
 		}
 
