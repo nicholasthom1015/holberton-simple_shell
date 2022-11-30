@@ -7,8 +7,6 @@
  */
 int main(void)
 {
-	pid_t myPID;
-	pid_t childPID;
 	char *rawInput = NULL;
 	ssize_t readResult;
 	size_t inputLen = 0;
@@ -18,7 +16,7 @@ int main(void)
 	{
 		write(STDOUT_FILENO, "->::", 4);
 		readResult = getline(&rawInput, &inputLen, stdin);
-		if(!readResult > 0)
+		if(!(readResult > 0))
 			break;
 		tokens = Prep_Input(rawInput, tokens);
 		if(tokens == NULL || tokens[0] == NULL)
