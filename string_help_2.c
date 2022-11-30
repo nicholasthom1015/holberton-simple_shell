@@ -1,5 +1,12 @@
 #include "shell_head.h"
 
+/**
+ * _strcpy - copy string pointer
+ * @dest: test character
+ * @src: test character
+ * Return: 0
+ */
+
 char *_strcpy(char *dest, const char *src)
 {
 	int index = 0;

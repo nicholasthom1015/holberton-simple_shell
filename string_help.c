@@ -1,5 +1,12 @@
 #include "shell_head.h"
 
+/**
+ * _strcat - concatenates two strings
+ * @dest: test character
+ * @src: test character
+ * Return: 0
+ */
+
 char *_strcat(char *dest, char *src)
 {
 	int index = 0, dest_len = 0;
