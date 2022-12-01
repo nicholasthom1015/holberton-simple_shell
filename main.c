@@ -14,7 +14,8 @@ int main(__attribute__((unused))int argc, char **argv)
 	char **tokens = NULL;
 
 	do {
-		write(STDOUT_FILENO, "->::", 4);
+		if (isatty(0))
+			write(STDOUT_FILENO, "->::", 4);
 		readResult = getline(&rawInput, &inputLen, stdin);
 		if (!(readResult > 0))
 			break;
