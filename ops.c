@@ -1,7 +1,12 @@
 #include "shell_head.h"
 #include "errno.h"
 #include "sys/wait.h"
-
+/**
+ *Run_Command - Fork execution and run program
+ *@argV: Null Terminated Array of arguments
+ *
+ *Return: 0 or fail
+ */
 int Run_Command(char **argV)
 {
 	pid_t childPID;
