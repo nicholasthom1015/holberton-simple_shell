@@ -9,13 +9,19 @@
 
 char *_strcat(char *dest, char *src)
 {
-	int index = 0, dest_len = 0;
+	char *result = NULL;
+	int index = 0, dest_len = 0,src_len = 0;
 
-	while (dest[index++])
+	while (dest[dest_len])
 		dest_len++;
-
+	while(src[src_len])
+		src_len++;
+	result = malloc(dest_len + src_len + 1);
+	for (index = 0; index < dest_len; index++)
+		result[index] += dest[index];
 	for (index = 0; src[index]; index++)
-		dest[dest_len++] = src[index];
-
-	return (dest);
+		result[dest_len + index] = src[index];
+	result[dest_len + index] = '\0';
+	dest = result;
+	return (result);
 }

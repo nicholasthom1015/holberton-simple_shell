@@ -18,6 +18,7 @@
 char **Prep_Input(char *, char **);
 char *_strcpy(char *dest, const char *src);
 char *_strcat(char *dest, char *src);
+char *getEnvVal(char *valName);
 int Validate_Input(char **);
 int Run_Command(char **);
 
