@@ -13,7 +13,6 @@ char **Prep_Input(char *line, char **resultArray)
 	char *delim = " \t\r\n";
 	int i;
 
-
 	if (resultArray == NULL)
 	{
 		resultArray = malloc(16 * sizeof(char *));
@@ -43,7 +42,70 @@ int Validate_Input(char **tokens)
 {
 	struct stat sb;
 	int result;
+	char *path = NULL;
+	char *testPath = NULL, *tempPath = NULL;
 
 	result = (stat(tokens[0], &sb) == 0);
-	return (result);
+	if (result)
+		return (result);
+	path = getEnvVal("PATH");
+	/*Add our program name to path */
+	testPath = strtok(path, ":");
+	do {
+		if (testPath == NULL)
+			break;
+		/* Concat strings*/
+		tempPath = _strcat(testPath, "/");
+		testPath = _strcat(tempPath, tokens[0]);
+		free(tempPath);
+		/*Check and break if valid */
+		if (stat(testPath, &sb) == 0)
+		{
+			tokens[0] = testPath;
+			free(path);
+			return (1);
+		}
+		free(testPath);
+	} while (testPath = strtok(NULL, ":"));
+	free(path);
+	return (0);
+}
+
+/**
+ * getEnvVal - get value from environ;
+ * @valName: Name of value to find
+ * Return: Value of ENV or null
+ */
+
+char *getEnvVal(char *valName)
+{
+
+	char *result = NULL;
+	int valIndex = 0, charIndex = 0, nameLen = 0;
+
+	while (valName[nameLen])
+		nameLen++;
+
+	for (valIndex, charIndex; charIndex < nameLen && environ[valIndex];)
+	{
+		if (environ[valIndex][nameLen] != '=')
+		{
+			valIndex++;
+			continue;
+		}
+		if (environ[valIndex][charIndex] == valName[charIndex])
+		{
+			charIndex++;
+			continue;
+		}
+		else
+		{
+			charIndex = 0;
+			valIndex++;
+			continue;
+		}
+	}
+	if (environ[valIndex])
+		return (_strcpy((environ[valIndex]) + nameLen + 1));
+	return (NULL);
 }
