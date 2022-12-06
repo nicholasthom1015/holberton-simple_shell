@@ -66,7 +66,7 @@ int Validate_Input(char **tokens)
 			return (1);
 		}
 		free(testPath);
-	} while (testPath = strtok(NULL, ":"));
+	} while ((testPath = strtok(NULL, ":")));
 	free(path);
 	return (0);
 }
@@ -80,13 +80,12 @@ int Validate_Input(char **tokens)
 char *getEnvVal(char *valName)
 {
 
-	char *result = NULL;
 	int valIndex = 0, charIndex = 0, nameLen = 0;
 
 	while (valName[nameLen])
 		nameLen++;
 
-	for (valIndex, charIndex; charIndex < nameLen && environ[valIndex];)
+	for (; charIndex < nameLen && environ[valIndex];)
 	{
 		if (environ[valIndex][nameLen] != '=')
 		{
