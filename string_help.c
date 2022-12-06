@@ -18,12 +18,11 @@ char *_strcat(char *dest, char *src)
 		src_len++;
 	result = malloc(dest_len + src_len + 1);
 	for (index = 0; dest[index]; index++)
-		result[index] += dest[index];
+		result[index] = dest[index];
 
 	for (index = 0; src[index]; index++)
 		result[dest_len + index] = src[index];
 
 	result[dest_len + index] = '\0';
-	dest = result;
 	return (result);
 }
