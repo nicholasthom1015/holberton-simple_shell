@@ -23,6 +23,7 @@ int Run_Command(char **argV)
 	else
 	{
 		wait(&status);
+		free(argV[0]);
 	}
 	return (0);
 
