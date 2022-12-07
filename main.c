@@ -24,7 +24,6 @@ int main(__attribute__((unused))int argc, char **argv)
 		{
 			continue;
 		}
-
 		if (Validate_Input(tokens))
 			Run_Command(tokens);
 		else
@@ -38,7 +37,6 @@ int main(__attribute__((unused))int argc, char **argv)
 	{
 		if (tokens[inputLen] != NULL)
 		{
-			printf("%p\t", tokens[inputLen]);
 			free(tokens[inputLen]);
 		}
 	}
