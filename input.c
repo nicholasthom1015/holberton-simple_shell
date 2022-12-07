@@ -23,11 +23,11 @@ char **Prep_Input(char *line, char **resultArray)
 	{
 		return (NULL);
 	}
-	curToken = strtok(line, delim);
+	curToken = _strcpy(strtok(line, delim));
 	for (i = 0; curToken && i < 15; i++)
 	{
 		resultArray[i] = curToken;
-		curToken = strtok(NULL, delim);
+		curToken = _strcpy(strtok(NULL, delim));
 	}
 	resultArray[i] = NULL;
 	return (resultArray);
@@ -61,6 +61,7 @@ int Validate_Input(char **tokens)
 		/*Check and break if valid */
 		if (stat(testPath, &sb) == 0)
 		{
+			free(tokens[0]);
 			tokens[0] = testPath;
 			free(path);
 			return (1);

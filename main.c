@@ -33,11 +33,15 @@ int main(__attribute__((unused))int argc, char **argv)
 		}
 	} while (readResult > 0);
 	/* printf("Goodbye!\n"); */
-	if (tokens)
+	free(rawInput);
+	for ( inputLen = 0; inputLen < 16; inputLen++)
 	{
-		free(tokens);
+		if (tokens[inputLen] != NULL)
+		{
+			printf("%p\t", tokens[inputLen]);
+			free(tokens[inputLen]);
+		}
 	}
-	if (rawInput)
-		free(rawInput);
+	free(tokens);
 	return (0);
 }

@@ -11,6 +11,8 @@ char *_strcpy(const char *src)
 	int index = 0;
 	char *dest;
 
+	if (src == NULL)
+		return (NULL);
 	while (src[index])
 	{
 		index++;
