@@ -34,7 +34,7 @@ int main(__attribute__((unused))int argc, char **argv)
 		}
 	} while (readResult > 0);
 	/* printf("Goodbye!\n"); */
-	for ( inputLen = 0; inputLen < 17; inputLen++)
+	for (inputLen = 0; inputLen < 17; inputLen++)
 	{
 		if (tokens[inputLen] != NULL)
 		{
