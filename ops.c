@@ -70,5 +70,5 @@ int printEnv(__attribute__((unused))char **tokens)
 	int i = 0;
 	for (i = 0; environ[i]; i++)
 		printf("%s\n", environ[i]);
-	return (0);
+	return (-1);
 }
