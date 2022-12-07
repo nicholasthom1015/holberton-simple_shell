@@ -36,12 +36,12 @@ int Run_Command(char **argV)
 int Get_Command(char **tokens)
 {
 	int i = 0;
-	builtIn ops[] ={
+	builtIn ops[] = {
 		{"exit", myexit},
 		{"env", printEnv},
 		{NULL, Validate_Input}
 	};
-	while (ops[i].opName !=NULL)
+	while (ops[i].opName != NULL)
 	{
 		if (strcmp(ops[i].opName, tokens[0]) == 0)
 			break;
@@ -50,10 +50,17 @@ int Get_Command(char **tokens)
 	return (ops[i].f(tokens));
 }
 
+/**
+ * myexit - frees token array and exits program
+ * @tokens: stray array output
+ * Return: -1
+ */
+
 int myexit(char **tokens)
 {
 	int i = 0;
-	for ( i = 0; i < 17; i++)
+
+	for (i = 0; i < 17; i++)
 	{
 		if (tokens[i] != NULL)
 		{
@@ -65,9 +72,16 @@ int myexit(char **tokens)
 	return (-1);
 }
 
+/**
+ * printEnv - prints content of enviormental variable
+ * @token: placeholder
+ * Return: -1
+ */
+
 int printEnv(__attribute__((unused))char **tokens)
 {
 	int i = 0;
+
 	for (i = 0; environ[i]; i++)
 		printf("%s\n", environ[i]);
 	return (-1);
