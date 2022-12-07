@@ -68,6 +68,8 @@ int myexit(char **tokens)
 		}
 	}
 	free(tokens);
+	if (isatty(0))
+		write(STDOUT_FILENO, "\n", 1);
 	exit(0);
 	return (-1);
 }
