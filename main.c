@@ -30,7 +30,7 @@ int main(__attribute__((unused))int argc, char **argv)
 			Run_Command(tokens);
 		else if (inputType == 0)
 		{
-			printf("%s: No such file or description\n", argv[0]);
+			printf("%s: No such file or directory\n", argv[0]);
 		}
 	} while (readResult > 0);
 	/* printf("Goodbye!\n"); */
