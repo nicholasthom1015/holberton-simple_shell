@@ -11,6 +11,7 @@ int main(__attribute__((unused))int argc, char **argv)
 	char *rawInput = NULL;
 	ssize_t readResult;
 	size_t inputLen = 0;
+	int inputType;
 	char **tokens = NULL;
 
 	do {
@@ -24,16 +25,16 @@ int main(__attribute__((unused))int argc, char **argv)
 		{
 			continue;
 		}
-		if (Validate_Input(tokens))
+		inputType = Get_Command(tokens);
+		if (inputType == 1)
 			Run_Command(tokens);
-		else
+		else if (inputType == 0)
 		{
 			printf("%s: No such file or description\n", argv[0]);
 		}
 	} while (readResult > 0);
 	/* printf("Goodbye!\n"); */
-	free(rawInput);
-	for ( inputLen = 0; inputLen < 16; inputLen++)
+	for ( inputLen = 0; inputLen < 17; inputLen++)
 	{
 		if (tokens[inputLen] != NULL)
 		{

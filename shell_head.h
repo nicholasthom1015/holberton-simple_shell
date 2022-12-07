@@ -12,6 +12,18 @@
 
 /* STRUCTURES */
 
+
+/**
+ *struct builtIn - Hold function and name
+ *@opName: String name of Builtin
+ *@f: Method to run builtin
+ */
+typedef struct builtIn
+{
+	char *opName;
+	int (*f)(char **);
+} builtIn;
+
 /* EXTERN */
 extern char **environ;
 /* FUNCTIONS*/
@@ -21,5 +33,9 @@ char *_strcat(char *dest, char *src);
 char *getEnvVal(char *valName);
 int Validate_Input(char **);
 int Run_Command(char **);
+int Get_Command(char **);
+int myexit(char **);
+int printEnv(char **);
+
 
 #endif

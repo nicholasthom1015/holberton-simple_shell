@@ -15,7 +15,7 @@ char **Prep_Input(char *line, char **resultArray)
 
 	if (resultArray == NULL)
 	{
-		resultArray = malloc(16 * sizeof(char *));
+		resultArray = malloc(17 * sizeof(char *));
 		for (i = 0; i < 16; i++)
 			resultArray[i] = NULL;
 	}
@@ -23,6 +23,7 @@ char **Prep_Input(char *line, char **resultArray)
 	{
 		return (NULL);
 	}
+	resultArray[16] = line;
 	curToken = _strcpy(strtok(line, delim));
 	for (i = 0; curToken && i < 15; i++)
 	{

@@ -27,3 +27,48 @@ int Run_Command(char **argV)
 	return (0);
 
 }
+
+/**
+ *Get_Command - Get correct Command
+ * @tokens: String Array of input
+ * Return: result of Command
+ */
+int Get_Command(char **tokens)
+{
+	int i = 0;
+	builtIn ops[] ={
+		{"exit", myexit},
+		{"env", printEnv},
+		{NULL, Validate_Input}
+	};
+	while (ops[i].opName !=NULL)
+	{
+		if (strcmp(ops[i].opName, tokens[0]) == 0)
+			break;
+		i++;
+	}
+	return (ops[i].f(tokens));
+}
+
+int myexit(char **tokens)
+{
+	int i = 0;
+	for ( i = 0; i < 17; i++)
+	{
+		if (tokens[i] != NULL)
+		{
+			free(tokens[i]);
+		}
+	}
+	free(tokens);
+	exit(0);
+	return (-1);
+}
+
+int printEnv(__attribute__((unused))char **tokens)
+{
+	int i = 0;
+	for (i = 0; environ[i]; i++)
+		printf("%s\n", environ[i]);
+	return (0);
+}
