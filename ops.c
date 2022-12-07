@@ -74,7 +74,7 @@ int myexit(char **tokens)
 
 /**
  * printEnv - prints content of enviormental variable
- * @token: placeholder
+ * @tokens: placeholder
  * Return: -1
  */
 
