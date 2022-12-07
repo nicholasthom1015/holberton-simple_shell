@@ -22,18 +22,21 @@ int main(__attribute__((unused))int argc, char **argv)
 			break;
 		tokens = Prep_Input(rawInput, tokens);
 		if (tokens == NULL || tokens[0] == NULL)
-		{
 			continue;
-		}
 		inputType = Get_Command(tokens);
 		if (inputType == 1)
 			Run_Command(tokens);
 		else if (inputType == 0)
 		{
-			printf("%s: No such file or directory\n", argv[0]);
+			if (tokens[0][0] == '/')
+			{
+				printf("%s: %s: No such file or directory\n",
+				       argv[0], tokens[0]);
+			}
+			else
+			printf("%s: %s: command not found\n", argv[0], tokens[0]);
 		}
 	} while (readResult > 0);
-	/* printf("Goodbye!\n"); */
 	for (inputLen = 0; inputLen < 17; inputLen++)
 	{
 		if (tokens[inputLen] != NULL)
