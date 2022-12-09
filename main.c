@@ -37,12 +37,13 @@ int main(__attribute__((unused))int argc, char **argv)
 			printf("%s: %s: command not found\n", argv[0], tokens[0]);
 		}
 	} while (readResult > 0);
+	if (tokens)
+	{
 	for (inputLen = 0; inputLen < 17; inputLen++)
 	{
 		if (tokens[inputLen] != NULL)
-		{
 			free(tokens[inputLen]);
-		}
+	}
 	}
 	free(tokens);
 	return (0);

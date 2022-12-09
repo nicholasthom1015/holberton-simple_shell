@@ -24,7 +24,7 @@ char **Prep_Input(char *line, char **resultArray)
 		return (NULL);
 	}
 	resultArray[16] = line;
-	if(resultArray[0] != line)
+	if (resultArray[0] != line)
 		free(resultArray[0]);
 	curToken = _strcpy(strtok(line, delim));
 	for (i = 0; curToken && i < 15; i++)
