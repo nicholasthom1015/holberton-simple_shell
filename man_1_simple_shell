@@ -1,0 +1,27 @@
+.TH simple_shell "12/10/2022" "Simple Shell man page"
+.SH NAME
+Simple Shell
+
+
+.SH COMPILATION
+'gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh'
+
+.SH SYNOPSIS
+.B ./hsh
+.B cat file | ./hsh
+
+.SH DESCRIPTION
+Our Simple Shell is a command line interpreter cappable of running programs in interactive and non-interactive modes.
+
+Simple Shell handles the exit and env built-in functions.
+
+Program witll prompt for input with "->::" when in interactive mode.
+
+.SH KNOWN ISSUES
+.B - Direct Paths that do not lead to programs will be tried against the PATH variable.
+
+.SH NOTES
+-none-
+
+.SH AUTHORS
+Philip Taylor, Nicholas Thomas
